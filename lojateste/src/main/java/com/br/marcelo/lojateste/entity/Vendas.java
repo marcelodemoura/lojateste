@@ -19,18 +19,19 @@ public class Vendas extends Cadastro{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false,name = "Tp_doce",length = 30)
-    private String tiposdedoce;
+    private String tpdoce;
     @Column(nullable = false,name = "Quantidade",length = 5)
     private int quantidade;
     @Column(nullable = false,name = "V_Total",length = 5)
-    private float valotTotal;
+    private float vTotal;
     @Column(nullable = false,name = "Cliente",length = 40)
     private String cliente;
     @Column(nullable = false,name = "F_Pagamento",length = 10)
-    private String formaDePagamento;
+    private String fPagamento;
     @Column(nullable = false,name = "Dt_Compra",length = 10)
-    private String dataDaCompra;
+    private String dtCompra;
     @Column(nullable = false,name = "VPago",length = 30)
-    private boolean valorPago;
+    private String vPago;
+
 
 }
