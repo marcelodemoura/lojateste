@@ -1,8 +1,9 @@
-package com.br.marcelo.lojateste.service;
+package com.br.marcelo.lojateste.service.servceImpl;
 
 import com.br.marcelo.lojateste.dto.ClienteDto;
 import com.br.marcelo.lojateste.entity.Cliente;
 import com.br.marcelo.lojateste.repository.ClienteRepository;
+import com.br.marcelo.lojateste.service.ClienteService;
 import com.br.marcelo.lojateste.service.exception.BadRequestException;
 import com.br.marcelo.lojateste.service.exception.NotFoundException;
 import org.springframework.beans.BeanUtils;
@@ -10,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.DeleteMapping;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -73,7 +73,6 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-
     public void delete(Long id) {
         repository.findById(id).orElseThrow(() -> new NotFoundException("Usuario de" + id + "não encontrado."));
         repository.findById(id);

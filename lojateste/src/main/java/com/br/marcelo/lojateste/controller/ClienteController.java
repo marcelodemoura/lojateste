@@ -1,7 +1,7 @@
 package com.br.marcelo.lojateste.controller;
 
 import com.br.marcelo.lojateste.dto.ClienteDto;
-import com.br.marcelo.lojateste.service.ClienteServiceImpl;
+import com.br.marcelo.lojateste.service.servceImpl.ClienteServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
