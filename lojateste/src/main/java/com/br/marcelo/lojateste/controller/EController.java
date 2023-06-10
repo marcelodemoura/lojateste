@@ -1,7 +1,8 @@
 package com.br.marcelo.lojateste.controller;
 
-import com.br.marcelo.lojateste.dto.ClienteDto;
-import com.br.marcelo.lojateste.service.servceImpl.ClienteServiceImpl;
+
+import com.br.marcelo.lojateste.dto.EmpresaDto;
+import com.br.marcelo.lojateste.service.servceImpl.EServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -10,45 +11,47 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
-
 @RestController
-@RequestMapping("/cliente")
-public class ClienteController {
+@RequestMapping("/empresa")
+public class EController {
+
     @Autowired
-    private ClienteServiceImpl service;
+    private EServiceImpl service;
 
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
-    public ClienteDto salvar(@RequestBody ClienteDto dto) {
+    public EmpresaDto salvar(@RequestBody EmpresaDto dto) {
         return service.save(dto);
     }
 
     @GetMapping()
     @ResponseStatus(HttpStatus.OK)
-    public Page<ClienteDto> listarTodos(@PageableDefault(page = 0, size = 10, sort = "id") Pageable pageable) {
+    public Page<EmpresaDto> listarTodos(@PageableDefault(page = 0, size = 10, sort = "id") Pageable pageable) {
         return service.findAll(pageable);
     }
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Optional<ClienteDto> buscarId(@PathVariable Long id) {
-        Optional<ClienteDto> dto = service.findById(id);
+    public Optional<EmpresaDto> buscarId(@PathVariable Long id) {
+        Optional<EmpresaDto> dto = service.findById(id);
         return dto;
     }
 
+
     @PatchMapping("/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public ClienteDto atualizar(@PathVariable Long id, @RequestBody ClienteDto dto) {
+    public EmpresaDto atualizar(@PathVariable Long id, @RequestBody EmpresaDto dto) {
         dto = service.update(id, dto);
         return dto;
     }
 
     @DeleteMapping("/{id}")
 //    @ResponseStatus(HttpStatus.ACCEPTED)
-    public ClienteDto apagar(@PathVariable Long id) {
+    public EmpresaDto apagar(@PathVariable Long id) {
         service.delete(id);
-        return new ClienteDto();
+        return new EmpresaDto();
     }
+
 
 
 }
