@@ -1,7 +1,6 @@
 package com.br.marcelo.lojateste.service;
 
 import com.br.marcelo.lojateste.dto.ClienteDto;
-import com.br.marcelo.lojateste.dto.EmpresaDto;
 import com.br.marcelo.lojateste.entity.Cliente;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

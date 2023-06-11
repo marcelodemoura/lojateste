@@ -22,7 +22,6 @@ public class ClienteServiceImpl implements ClienteService {
     private ClienteRepository repository;
 
 
-
     @Override
     public ClienteDto save(ClienteDto dto) {
         Cliente entity = new Cliente();
@@ -32,8 +31,6 @@ public class ClienteServiceImpl implements ClienteService {
         repository.save(entity);
         return dto;
     }
-
-
 
 
     @Override
