@@ -12,16 +12,16 @@ import javax.persistence.*;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "/vendas")
+@Table(name = "tb_vendas")
 public class Vendas extends Cadastro{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "TP_Doces",nullable = false, length = 5)
-    private String tPdoces;
     @Column(name = "Qtde",nullable = false, length = 5)
     private String qtde;
+    @Column(name = "TP_Doces",nullable = false, length = 5)
+    private String tPdoces;
     @Column(name = "QTotal",nullable = false, length = 5)
     private String qTotal;
     @Column(name = "Cliente",nullable = false, length = 30)

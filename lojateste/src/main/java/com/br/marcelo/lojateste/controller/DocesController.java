@@ -1,6 +1,5 @@
 package com.br.marcelo.lojateste.controller;
 
-import com.br.marcelo.lojateste.dto.ClienteDto;
 import com.br.marcelo.lojateste.dto.DocesDto;
 import com.br.marcelo.lojateste.service.servceImpl.DocesServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
