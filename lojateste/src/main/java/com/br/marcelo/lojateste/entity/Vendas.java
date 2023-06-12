@@ -13,7 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "/vendas")
-public class Vendas {
+public class Vendas extends Cadastro{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,6 +35,6 @@ public class Vendas {
     @Column(name = "VPago",nullable = false, length = 5)
     private String vPago;
     @Column(name = "Pago",nullable = false, length = 5)
-    private boolean Pago = false;
+    private String Pago;
 
 }
