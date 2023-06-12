@@ -44,7 +44,7 @@ public class ClienteController {
     }
 
     @DeleteMapping("/{id}")
-//    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.OK)
     public ClienteDto apagar(@PathVariable Long id) {
         service.delete(id);
         return new ClienteDto();

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 @RestController
 @RequestMapping("/empresa")
-public class EController {
+public class EmpresaController {
 
     @Autowired
     private EServiceImpl service;
