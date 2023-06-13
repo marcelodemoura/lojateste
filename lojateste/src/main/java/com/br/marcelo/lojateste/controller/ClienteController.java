@@ -47,7 +47,7 @@ public class ClienteController {
     @ResponseStatus(HttpStatus.OK)
     public ClienteDto apagar(@PathVariable Long id) {
         service.delete(id);
-        return new ClienteDto();
+        return null;
     }
 
 

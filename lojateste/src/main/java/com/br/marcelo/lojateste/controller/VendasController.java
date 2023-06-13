@@ -44,7 +44,7 @@ public class VendasController {
     @ResponseStatus(HttpStatus.OK)
     public VendasDto apagar(@PathVariable Long id) {
         service.delete(id);
-        return new VendasDto();
+        return null;
     }
 
 }

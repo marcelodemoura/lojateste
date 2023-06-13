@@ -25,6 +25,7 @@ public class Cliente extends Cadastro {
     private String cpf;
     @Column(name = "Email", length = 30, nullable = false)
     private String email;
+
     @Column(length = 50, name = "Nome", nullable = false, unique = true)
     private String nome;
     @Column(name = "Telefone", length = 15, nullable = false)

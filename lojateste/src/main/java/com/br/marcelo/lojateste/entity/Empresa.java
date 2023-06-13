@@ -17,6 +17,7 @@ public class Empresa extends Cadastro{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(name = "Nome", nullable = false, length = 50, unique = true)
     private String nome;
     @Column(name = "Ativa", nullable = false,length = 1)
