@@ -28,4 +28,8 @@ public class ClienteDto {
         this.email = entity.getEmail();
         this.telefone = entity.getTelefone();
     }
+
+
+
+
 }

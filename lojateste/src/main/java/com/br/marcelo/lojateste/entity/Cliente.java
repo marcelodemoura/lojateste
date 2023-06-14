@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "tb_cliente")
+@Table(name = "cliente")
 public class Cliente extends Cadastro {
 
     @Id
