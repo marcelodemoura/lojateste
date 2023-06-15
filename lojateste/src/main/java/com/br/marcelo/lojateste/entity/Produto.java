@@ -13,7 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "tb_doces")
-public class Doces extends Cadastro{
+public class Produto extends Cadastro{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

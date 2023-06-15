@@ -23,7 +23,6 @@ public class Cliente extends Cadastro {
     private Long id;
 
     @ManyToMany(mappedBy = "clientes")
-//    @JoinColumn(name = "cliente_vendas")
     List<Vendas>vendas;
     @CPF
     @Column(length = 14, name = "Cpf", nullable = false)

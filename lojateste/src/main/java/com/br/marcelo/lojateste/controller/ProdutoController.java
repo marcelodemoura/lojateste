@@ -1,7 +1,7 @@
 package com.br.marcelo.lojateste.controller;
 
-import com.br.marcelo.lojateste.dto.DocesDto;
-import com.br.marcelo.lojateste.service.servceImpl.DocesServiceImpl;
+import com.br.marcelo.lojateste.dto.ProdutoDto;
+import com.br.marcelo.lojateste.service.servceImpl.ProdutoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,37 +13,37 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/doces")
-public class DocesController {
+public class ProdutoController {
     @Autowired
-    private DocesServiceImpl service;
+    private ProdutoServiceImpl service;
 
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
-    public DocesDto salvar(@RequestBody DocesDto dto) {
+    public ProdutoDto salvar(@RequestBody ProdutoDto dto) {
         return service.save(dto);
     }
     @GetMapping()
     @ResponseStatus(HttpStatus.OK)
-    public Page<DocesDto> listar(@PageableDefault(page = 0, size =10, sort = "id") Pageable pageable){
+    public Page<ProdutoDto> listar(@PageableDefault(page = 0, size =10, sort = "id") Pageable pageable){
         return service.findAll(pageable);
     }
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Optional<DocesDto>listarId(@PathVariable Long id){
-        Optional<DocesDto>dto = service.findById(id);
+    public Optional<ProdutoDto>listarId(@PathVariable Long id){
+        Optional<ProdutoDto>dto = service.findById(id);
         return dto;
     }
     @PatchMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public DocesDto atualizar(@PathVariable Long id, @RequestBody DocesDto dto){
+    public ProdutoDto atualizar(@PathVariable Long id, @RequestBody ProdutoDto dto){
         dto = service.update(id, dto);
         return dto;
     }
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public DocesDto apagar(@PathVariable Long id) {
+    public ProdutoDto apagar(@PathVariable Long id) {
         service.delete(id);
-        return new DocesDto();
+        return new ProdutoDto();
     }
 
 

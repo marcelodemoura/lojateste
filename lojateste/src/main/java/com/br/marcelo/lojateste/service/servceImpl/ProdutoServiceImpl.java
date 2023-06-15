@@ -1,9 +1,9 @@
 package com.br.marcelo.lojateste.service.servceImpl;
 
-import com.br.marcelo.lojateste.dto.DocesDto;
-import com.br.marcelo.lojateste.entity.Doces;
-import com.br.marcelo.lojateste.repository.DoceRepository;
-import com.br.marcelo.lojateste.service.DoceService;
+import com.br.marcelo.lojateste.dto.ProdutoDto;
+import com.br.marcelo.lojateste.entity.Produto;
+import com.br.marcelo.lojateste.repository.ProdutoRepository;
+import com.br.marcelo.lojateste.service.ProdutoService;
 import com.br.marcelo.lojateste.service.exception.BadRequestException;
 import com.br.marcelo.lojateste.service.exception.NotFoundException;
 import org.springframework.beans.BeanUtils;
@@ -16,14 +16,14 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
-public class DocesServiceImpl implements DoceService {
+public class ProdutoServiceImpl implements ProdutoService {
 
     @Autowired
-    private DoceRepository repository;
+    private ProdutoRepository repository;
 
     @Override
-    public DocesDto save(DocesDto dto) {
-        Doces entity = new Doces();
+    public ProdutoDto save(ProdutoDto dto) {
+        Produto entity = new Produto();
         BeanUtils.copyProperties(dto, entity);
         this.validationDescricao(entity);
         entity.setDatacadastro(LocalDateTime.now());
@@ -33,20 +33,20 @@ public class DocesServiceImpl implements DoceService {
 
 
     @Override
-    public Page<DocesDto> findAll(Pageable pageable) {
-        Page<Doces> list = repository.findAll(pageable);
-        return list.map(x -> new DocesDto(x));
+    public Page<ProdutoDto> findAll(Pageable pageable) {
+        Page<Produto> list = repository.findAll(pageable);
+        return list.map(x -> new ProdutoDto(x));
     }
 
     @Override
-    public Optional<DocesDto> findById(Long id) {
-        Optional<Doces> docesOptional = repository.findById(id);
-        Doces entity = docesOptional.orElseThrow(() -> new NotFoundException("Usuario não encontrado"));
-        return Optional.of(new DocesDto(entity));
+    public Optional<ProdutoDto> findById(Long id) {
+        Optional<Produto> docesOptional = repository.findById(id);
+        Produto entity = docesOptional.orElseThrow(() -> new NotFoundException("Usuario não encontrado"));
+        return Optional.of(new ProdutoDto(entity));
     }
     @Override
-    public DocesDto update(Long id, DocesDto dto) {
-        Doces entity = repository.findById(id).orElseThrow(() -> new NotFoundException("Usuario não encontrado"));
+    public ProdutoDto update(Long id, ProdutoDto dto) {
+        Produto entity = repository.findById(id).orElseThrow(() -> new NotFoundException("Usuario não encontrado"));
         if (dto.getDescricao() != null) {
             entity.setDescricao(dto.getDescricao());
         }
@@ -58,7 +58,7 @@ public class DocesServiceImpl implements DoceService {
         }
         entity.setDataAtualizacao(LocalDateTime.now());
         repository.save(entity);
-        return new DocesDto(entity);
+        return new ProdutoDto(entity);
     }
 
     @Override
@@ -68,8 +68,8 @@ public class DocesServiceImpl implements DoceService {
 
     }
 
-    private void validationDescricao(Doces entity) {
-        Optional<Doces> docesOptional = repository.findBydescricao(entity.getDescricao());
+    private void validationDescricao(Produto entity) {
+        Optional<Produto> docesOptional = repository.findBydescricao(entity.getDescricao());
         if (docesOptional.isPresent()) {
             throw new BadRequestException("Descrição esxistente!");
         }
