@@ -17,14 +17,14 @@ public class ClienteDto {
 
     private String nome;
     @CPF
-    private String cpf;
+    private String empresa;
     @Email
     private String email;
     private String telefone;
 
     public ClienteDto(Cliente entity) {
         this.nome = entity.getNome();
-        this.cpf = entity.getCpf();
+        this.empresa = entity.getEmpresa();
         this.email = entity.getEmail();
         this.telefone = entity.getTelefone();
     }

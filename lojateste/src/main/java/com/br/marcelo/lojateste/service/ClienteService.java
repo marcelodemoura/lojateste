@@ -15,5 +15,5 @@ public interface ClienteService {
     ClienteDto update(Long id, ClienteDto dto);
     void delete(Long id);
 
-    void validationCpf(Cliente entity);
+    void validationEmpresa(Cliente entity);
 }

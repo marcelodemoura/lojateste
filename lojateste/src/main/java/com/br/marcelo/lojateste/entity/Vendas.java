@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.Columns;
 
 import javax.persistence.*;
 import java.util.List;
@@ -40,11 +39,10 @@ public class Vendas extends Cadastro {
     private String Pago;
     @ManyToMany
     @JoinTable(name = "cliente_vendas",
-                joinColumns = @JoinColumn(name = "vendas_fk"),
-                inverseJoinColumns = @JoinColumn(name = "cliente_fk"))
-    List<Cliente> clientes;
+            joinColumns = @JoinColumn(name = "vendas_fk"),
+            inverseJoinColumns = @JoinColumn(name = "cliente_fk"))
+    private List<Cliente> clientes;
 
-//    public Cliente getClientes() {
-//        return clientes;
-//    }
+    @ManyToMany(mappedBy = "clientes")
+    List<Vendas> vendas;
 }

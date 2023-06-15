@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.List;
 
 
@@ -22,18 +23,19 @@ public class Cliente extends Cadastro {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToMany(mappedBy = "clientes")
-    List<Vendas>vendas;
-    @CPF
-    @Column(length = 14, name = "Cpf", nullable = false)
-    private String cpf;
+    @Column(length = 50, name = "empresa", nullable = false)
+    private String empresa;
     @Column(name = "Email", length = 30, nullable = false)
+    @Email
     private String email;
 
     @Column(length = 50, name = "Nome", nullable = false, unique = true)
     private String nome;
     @Column(name = "Telefone", length = 15, nullable = false)
     private String telefone;
+
+    @ManyToMany(mappedBy = "clientes")
+    private List<Vendas>vendas;
 
 
 

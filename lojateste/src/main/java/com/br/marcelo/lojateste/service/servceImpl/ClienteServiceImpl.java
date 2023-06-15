@@ -26,7 +26,7 @@ public class ClienteServiceImpl implements ClienteService {
     public ClienteDto save(ClienteDto dto) {
         Cliente entity = new Cliente();
         BeanUtils.copyProperties(dto, entity);
-        this.validationCpf(entity);
+        this.validationEmpresa(entity);
         entity.setDatacadastro(LocalDateTime.now());
         repository.save(entity);
         return dto;
@@ -57,8 +57,8 @@ public class ClienteServiceImpl implements ClienteService {
     @Override
     public ClienteDto update(Long id, ClienteDto dto) {
         Cliente entity = repository.findById(id).orElseThrow(() -> new NotFoundException("Usuario não encontrado"));
-        if (dto.getCpf() != null) {
-            entity.setCpf(dto.getCpf());
+        if (dto.getEmpresa() != null) {
+            entity.setEmpresa(dto.getEmpresa());
         }
         if (dto.getNome() != null) {
             entity.setNome(dto.getNome());
@@ -83,8 +83,8 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    public void validationCpf(Cliente entity) {
-        Optional<Cliente> clienteOptional = repository.findByCpf(entity.getCpf());
+    public void validationEmpresa(Cliente entity) {
+        Optional<Cliente> clienteOptional = repository.findByEmpresa(entity.getEmpresa());
         if (clienteOptional.isPresent()) {
             throw new BadRequestException("Cpf cadastrado!");
         }
