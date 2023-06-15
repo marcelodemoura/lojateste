@@ -23,7 +23,7 @@ public class Empresa extends Cadastro{
     private String nome;
     @Column(name = "Ativa", nullable = false,length = 1)
     private String ativa;
-    @OneToMany
-    @JoinColumn(name = "empresa_cliente")
-    private List<Cliente>clientes;
+//    @OneToMany
+//    @JoinColumn(name = "empresa_cliente")
+//    private List<Cliente>clientes;
 }

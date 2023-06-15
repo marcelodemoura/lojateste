@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Setter
@@ -20,6 +21,10 @@ public class Cliente extends Cadastro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @ManyToMany(mappedBy = "clientes")
+//    @JoinColumn(name = "cliente_vendas")
+    List<Vendas>vendas;
     @CPF
     @Column(length = 14, name = "Cpf", nullable = false)
     private String cpf;
@@ -30,4 +35,7 @@ public class Cliente extends Cadastro {
     private String nome;
     @Column(name = "Telefone", length = 15, nullable = false)
     private String telefone;
+
+
+
 }

@@ -22,6 +22,7 @@ public class VendasDto {
     private String vPago;
     private String Pago;
 
+
     public VendasDto(Vendas entity) {
         this.tPdoces = entity.getTPdoces();
         this.qtde = entity.getQtde();
