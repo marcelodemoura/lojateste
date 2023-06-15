@@ -16,9 +16,9 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 public class Cadastro {
 
-    @JsonFormat(pattern = "dd/mm;yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/mm/yyyy@HH:mm:ss")
     LocalDateTime datacadastro;
-    @JsonFormat(pattern = "dd/mm;yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/mm/yyyy@HH:mm:ss")
     LocalDateTime dataAtualizacao;
 
 }
