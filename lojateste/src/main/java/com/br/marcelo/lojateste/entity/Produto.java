@@ -23,7 +23,7 @@ public class Produto extends Cadastro{
     private String descricao;
     @Column(name = "V_unit",nullable = false, length = 5)
     private String valorUnitario;
-    @Column(name = "Qtde", nullable = false, length = 3)
+    @Column(name = "Qtde", nullable = false, length = 5)
     private String qtdeEstoque;
 
 //    @ManyToMany

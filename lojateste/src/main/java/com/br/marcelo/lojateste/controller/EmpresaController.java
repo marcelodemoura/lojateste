@@ -21,6 +21,7 @@ public class EmpresaController {
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public EmpresaDto salvar(@RequestBody EmpresaDto dto) {
+
         return service.save(dto);
     }
 

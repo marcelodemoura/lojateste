@@ -63,12 +63,7 @@ public class VendasServiceImpl implements VendasSevice {
         if (dto.getFPagamento() != null) {
             entity.setFPagamento(dto.getFPagamento());
         }
-//        if (dto.getDtCompra() != null) {
-//            entity.setDtCompra(dto.getDtCompra());
-//        }
-//        if (dto.getDtPagamento() != null) {
-//            entity.setDtPagamento(dto.getDtPagamento());
-//        }
+
         if (dto.getVPago() != null) {
             entity.setVPago(dto.getVPago());
         }

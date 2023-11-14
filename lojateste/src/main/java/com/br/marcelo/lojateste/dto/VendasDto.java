@@ -17,8 +17,6 @@ public class VendasDto {
     private String qTotal;
     private String cliente;
     private String fPagamento;
-    private String dtCompra;
-    private String dtPagamento;
     private String vPago;
     private String Pago;
 
@@ -29,8 +27,6 @@ public class VendasDto {
         this.qTotal = entity.getQTotal();
         this.cliente = entity.getCliente();
         this.fPagamento = entity.getFPagamento();
-//        this.dtCompra = entity.getDtCompra();
-//        this.dtPagamento = entity.getDtPagamento();
         this.vPago = entity.getVPago();
         this.Pago = entity.getPago();
     }

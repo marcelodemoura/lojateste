@@ -4,11 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.util.List;
+import java.util.Set;
 
 
 @Setter
@@ -34,9 +34,14 @@ public class Cliente extends Cadastro {
     @Column(name = "Telefone", length = 15, nullable = false)
     private String telefone;
 
-    @ManyToMany(mappedBy = "clientes")
-    private List<Vendas>vendas;
-
+//    @ManyToMany
+//    @JoinTable(name = "cliente_vendas",
+//            joinColumns = @JoinColumn(name = "clientes_id"),
+//            inverseJoinColumns = @JoinColumn(name = "vendas_id"))
+//    private List<Cliente> clientes;
+//    @ManyToMany
+////            (mappedBy = "clientesVendas")
+//    Set<Vendas> vendas;
 
 
 }
